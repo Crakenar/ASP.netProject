@@ -1,0 +1,239 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TimeLine.master.cs" Inherits="SocialNetProject.TimeLine" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="This is social network html5 template available in themeforest......" />
+    <meta name="keywords" content="Social Network, Social Media, Make Friends, Newsfeed, Profile Page" />
+    <meta name="robots" content="index, follow" />
+    <title>My Timeline | This is My Coolest Profile</title>
+
+    <!-- Stylesheets
+    ================================================= -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="css/emoji.css" rel="stylesheet" />
+
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="images/fav.png" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Header
+    ================================================= -->
+        <header id="header">
+            <nav class="navbar navbar-default navbar-fixed-top menu">
+                <div class="container">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index-register.html">
+                            <img src="images/logo.png" alt="logo" /></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right main-menu">
+                            <li class="dropdown"><a href="RegisterLogin.aspx">Home</a></li>
+                            <li class="dropdown"><a href="TimeLine_Notifications.aspx">Newsfeed</a></li>
+                            <li class="dropdown"><a href="FindFriends.aspx">Find Friends</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span>
+                                    <img src="images/down-arrow.png" alt="" /></span></a>
+                                <ul class="dropdown-menu login">
+                                    <li><a href="TimeLine.aspx">Timeline</a></li>
+                                    <li><a href="TimeLine_About.aspx?me=1">Timeline About</a></li>
+                                    <li><a href="TimeLine_Album.aspx?me=1">Timeline Album</a></li>
+                                    <li><a href="TimeLine_Friends.aspx">Timeline Friends</a></li>
+                                     <li><a href="TimeLine_Notifications.aspx">Notifications</a></li>
+                                    <li><a href="TimelIne_EditBasicInfo.aspx">Edit: Basic Info</a></li>
+                                    <li><a href="TimeLine_EditPosts.aspx">Edit: Posts</a></li>
+                                     <li><a href="TimeLine_EditAlbum.aspx">Edit Album</a></li>
+
+                                    <li><a href="TimeLineEdit_Education.aspx">Edit: Education</a></li>
+                                    <li><a href="edit-profile-work-edu.html">Edit: Work</a></li>
+                                    <li><a href="TimeLine_EditSettings.aspx">Account Settings</a></li>
+                                    <li><a href="edit-profile-password.html">Change Password</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="404.html">About</a></li>
+                            <li class="dropdown"><a href="404.html">Contact</a></li>
+                        </ul>
+
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+        </header>
+        <!--Header End-->
+
+        <div class="container">
+
+            <!-- Timeline
+      ================================================= -->
+            <div class="timeline">
+                <div class="timeline-cover"  style="background: url('<%= SetCover() %>') no-repeat;">
+
+                    <!--Timeline Menu for Large Screens-->
+                    <div class="timeline-nav-bar hidden-sm hidden-xs">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="profile-info">
+                                    <img src="<%= SetProfileImage() %>" alt="" class="img-responsive profile-photo" />
+                                    <h3> <%= SetFullName() %>  </h3>
+                                    <p class="text-muted"><%= SetBio() %> </p>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <ul class="list-inline profile-menu">
+                                    <li><a href="Timeline.aspx" class="active">Timeline</a></li>
+                                    <li><a href="TimeLine_About.aspx">About</a></li>
+                                    <li><a href="TimeLine_Album.aspx">Album</a></li>
+                                    <li><a href="TimeLine_Friends.aspx">Friends</a></li>
+                                    <li><a href="TimeLine_Notifications.aspx">Notifications</a></li>
+                                </ul>
+                                <ul class="follow-me list-inline">
+                                    <li>1,299 people following her</li>
+                                    <li>
+                                        <button class="btn-primary">Add Friend</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Timeline Menu for Large Screens End-->
+
+                    <!--Timeline Menu for Small Screens-->
+                    <div class="navbar-mobile hidden-lg hidden-md">
+                        <div class="profile-info">
+                            <img src="<%= SetProfileImage() %>" alt="" class="img-responsive profile-photo" />
+                            <h4> <%= SetFullName() %></h4>
+                            <p class="text-muted"><%= SetBio() %></p>
+                        </div>
+                        <div class="mobile-menu">
+                            <ul class="list-inline">
+                                <li><a href="Timeline.aspx" class="active">Timeline</a></li>
+                                <li><a href="TimeLine_About.aspx">About</a></li>
+                                <li><a href="TimeLine_Album.aspx">Album</a></li>
+                                <li><a href="TimeLine_Friends.aspx">Friends</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Timeline Menu for Small Screens End-->
+
+                </div>
+                <div id="page-contents">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer
+    ================================================= -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-wrapper">
+                        <div class="col-md-3 col-sm-3">
+                            <a href="#">
+                                <img src="images/logo-black.png" alt="" class="footer-logo" /></a>
+                            <ul class="list-inline social-icons">
+                                <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+                                <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+                                <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+                                <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+                                <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <h5>For individuals</h5>
+                            <ul class="footer-links">
+                                <li><a href="#">Signup</a></li>
+                                <li><a href="#">login</a></li>
+                                <li><a href="#">Explore</a></li>
+                                <li><a href="#">Finder app</a></li>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">Language settings</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <h5>For businesses</h5>
+                            <ul class="footer-links">
+                                <li><a href="#">Business signup</a></li>
+                                <li><a href="#">Business login</a></li>
+                                <li><a href="#">Benefits</a></li>
+                                <li><a href="#">Resources</a></li>
+                                <li><a href="#">Advertise</a></li>
+                                <li><a href="#">Setup</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <h5>About</h5>
+                            <ul class="footer-links">
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <h5>Contact Us</h5>
+                            <ul class="contact">
+                                <li><i class="icon ion-ios-telephone-outline"></i>+1 (234) 222 0754</li>
+                                <li><i class="icon ion-ios-email-outline"></i>info@thunder-team.com</li>
+                                <li><i class="icon ion-ios-location-outline"></i>228 Park Ave S NY, USA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Thunder Team © 2016. All rights reserved</p>
+            </div>
+        </footer>
+
+        <!--preloader-->
+        <div id="spinner-wrapper">
+            <div class="spinner"></div>
+        </div>
+
+    </form>
+
+    <!-- Scripts
+    ================================================= -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky-kit.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+</body>
+</html>
+
+
